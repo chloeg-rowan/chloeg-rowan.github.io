@@ -1,4 +1,4 @@
-/* style.css (mobile responsive update) */
+/* style.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -56,6 +56,32 @@ nav a {
 
 nav a:hover {
   color: var(--accent-color);
+}
+
+/* Mobile hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+nav ul.active {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--secondary-color);
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .hero {
@@ -150,26 +176,30 @@ footer {
 }
 
 /* ------------------------------- */
-/* Mobile Support for smaller screens. */
+/* Responsive Design with Dropdown */
 /* ------------------------------- */
 
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
+  .hamburger {
+    display: flex;
   }
 
   nav ul {
+    display: none;
     flex-direction: column;
-    gap: 0.75rem;
     width: 100%;
-    margin-top: 0.5rem;
+    background: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 10px;
   }
 
-  nav a {
-    display: block;
-    padding: 0.5rem 0;
+  nav ul.show {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: row;
+    align-items: center;
   }
 
   .hero-content h2 {
@@ -178,18 +208,6 @@ footer {
 
   section {
     padding: 3rem 1.25rem;
-  }
-
-  .skills-list {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-
-  .job {
-    padding: 1rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
   }
 }
 
